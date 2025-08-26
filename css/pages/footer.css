@@ -62,3 +62,13 @@ footer {
         }
     }
 }
+
+@media (max-width:600px) {
+    footer {
+        scale: 0.9;
+        & .boit.boit-links {
+            font-size: 0.5rem;
+            max-width: calc(95vw - 2rem);
+        }
+    }
+}

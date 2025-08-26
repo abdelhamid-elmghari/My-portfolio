@@ -15,7 +15,6 @@
         scale: 0.9;
         display: flex;
         justify-content: center;
-        align-items: center;
         flex-wrap: wrap;
         gap: 20px;
         & .logo-pecture-personelle {
@@ -50,10 +49,9 @@
             flex-direction: column;
             color: var(--secondary-color);
             justify-content: center;
-            padding: 3rem;
-            width: auto;
-            max-width: 60%;
-            gap: 20px;
+            padding: 4rem;
+            max-width: 80%;
+            gap: 30px;
             & .information {
                 & p {
                     font-weight: 500;
@@ -120,9 +118,14 @@
 
 @media (max-width:900px) {
     .about-me {
+        & .logo-pecture-personelle {
+            margin: 20px auto;
+        }
         & .content {
+            justify-content: start;
             & section {
-                width: 100%;
+                margin: 0 auto;
+                padding-inline: 10px;
                 & .my-competantion {
                     flex-wrap: wrap;
                     & a {
