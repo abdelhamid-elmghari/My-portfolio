@@ -1,0 +1,181 @@
+.container-ab {
+    height: 100vh;
+    padding-top: 5%;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    & .info {
+        padding-top: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        color: var(--secondary-color);
+        & .img-pecture img {
+            width: 200px;
+            z-index: 1;
+            position: relative;
+            border-radius: 50%;
+            transition: 0.5s;
+        }
+        & .img-pecture::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            height: 100%;
+            background-size: 200%;
+            inset: 0;
+            width: 100%;
+        }
+        & .img-pecture {
+            border-radius: 50%;
+            position: relative;
+            height: 206px;
+            overflow: hidden;
+            animation: drow ease-in forwards;
+        }
+        & h1 {
+            /* -webkit-text-stroke: 2px var(--accent-color); */
+            font-weight: 700;
+            color: var(--primary-color);
+            position: relative;
+            padding-inline: 5px;
+            font-size: clamp(1rem, calc(7vw + 1rem), 3.5rem);
+        }
+        & h1::after {
+            content: "Hello";
+            font-weight: 700;
+            position: absolute;
+            top: 0;
+            padding-inline: 5px;
+            left: 0;
+            border-right: 0.30vmin solid var(--accent-color);
+            color: var(--accent-color);
+            height: 100%;
+            font-size: clamp(1rem, calc(7vw + 1rem), 3.5rem);
+            overflow: hidden;
+            animation: affect_text 5s steps(20) infinite;
+        }
+        & h2 {
+            font-weight: 500;
+            font-size: clamp(1rem, calc(7vw + 1rem), 2rem);
+        }
+        & p {
+            text-align: center;
+            font-weight: 500;
+        }
+        & .my-resume {
+            display: flex;
+            gap: 10px;
+            & :is(.contact-me, .myresume) {
+                padding: 1rem 2rem;
+                font-weight: 400;
+                font-size: 1.2rem;
+                border-radius: 50px;
+                border: 1px solid var(--secondary-color);
+                color: white;
+                text-decoration: none;
+                transition: 0.5s;
+            }
+            & :is(.contact-me, .myresume) i {
+                padding-left: 10px;
+            }
+            & .contact-me {
+                background-image: linear-gradient(to top right, rgb(255, 187, 0), rgb(255, 81, 0));
+                border: none;
+            }
+             :is(.contact-me, .myresume):hover {
+                box-shadow: 2px 2px 100px rgba(255, 187, 0, 0.297), -2px -2px 100px rgba(255, 81, 0, 0.297);
+            }
+             :is(.contact-me, .myresume):active {
+                scale: 0.9;
+            }
+            & .myresume {
+                color: var(--accent-color);
+            }
+        }
+        & .links-sosial {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 2rem 3rem;
+        }
+        & .links-sosial .link i {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            padding: 10px;
+            cursor: pointer;
+            transition: 0.5s linear;
+        }
+        & .links-sosial .link i:hover {
+            color: var(--accent-color);
+        }
+        &.img-pecture {
+            animation-duration: 1s;
+        }
+        & h1 {
+            animation-duration: 1s;
+        }
+        & h2 {
+            animation-duration: 1.4s;
+        }
+        & p {
+            animation-duration: 1.5s;
+        }
+        &.links-sosial {
+            animation-duration: 2s;
+        }
+    }
+}
+
+ :is(.img-pecture, h1, h2, p, .links-sosial) {
+    animation: drow ease-in forwards;
+}
+
+
+/* animation of pages about */
+
+@keyframes affect_text {
+    0%,
+    10%,
+    100% {
+        width: 0;
+    }
+    70%,
+    90% {
+        width: 100%;
+    }
+}
+
+@keyframes after_effect {
+    to {
+        background-position: 200%;
+    }
+}
+
+@keyframes drow {
+    from {
+        transform: translateY(10%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width:665px) {
+    .info {
+        scale: 0.8;
+    }
+     :is(.info h1, h2) {
+        text-align: center;
+    }
+}
+
+.show {
+    opacity: 1;
+}

@@ -1,0 +1,66 @@
+/* animation */
+
+
+/* --------HOME------------------- */
+
+.container-ab {
+    & .info {
+        & .img-pecture {}
+    }
+}
+
+@keyframes fade-in {
+    to {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+
+/* ---------ABOUT----------- */
+
+.about-me {
+    & :is(h3, h1, .content, section) {
+        scale: .8;
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range: 250px 500px;
+        opacity: 0;
+    }
+}
+
+
+/* ---------serveses----------- */
+
+.serveses {
+    & :is(.info, .myservese) {
+        scale: .8;
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range: 250px 500px;
+        opacity: 0;
+    }
+}
+
+
+/* ---------ABOUT----------- */
+
+.works {
+    & :is(.info, .myworks, ) {
+        scale: .8;
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range: 250px 500px;
+        opacity: 0;
+    }
+}
+
+.contactme {
+    & :is(.info, .post-info, ) {
+        scale: .8;
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range: 250px 500px;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,167 @@
+.contactme {
+    height: 100vh;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    padding-top: 100px;
+    flex-direction: column;
+    color: var(--secondary-color);
+    & .post-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        & .pesonnel-info {
+            display: flex;
+            gap: 20px;
+            & .boit {
+                width: 400px;
+                height: 50px;
+                position: relative;
+                & input {
+                    height: 100%;
+                    padding-inline: 20px;
+                    color: var(--info-color);
+                    font-size: 1.2rem;
+                    font-weight: 400;
+                    width: 100%;
+                    box-shadow: 0px 0px 2px var(--secondary-color);
+                    border: none;
+                    border-radius: 5px;
+                    transition: 0.5s;
+                    outline: none;
+                    background: none;
+                }
+                & label {
+                    position: absolute;
+                    left: 0;
+                    font-size: 1.2rem;
+                    padding: 10px;
+                    padding-inline: 20px;
+                    color: rgb(129, 129, 129);
+                    font-weight: 400;
+                    letter-spacing: 0.1rem;
+                    text-transform: uppercase;
+                    pointer-events: none;
+                }
+                & :is(input, label) {
+                    transition: 0.2s;
+                }
+                & input:valid {
+                    border: 2px solid var(--info-color);
+                    box-shadow: 0px 0px 2px var(--info-color);
+                }
+                & input:valid~label {
+                    color: var(--info-color);
+                    background-color: var(--primary-color);
+                    padding: 0;
+                    scale: 0.9;
+                    left: 10px;
+                    font-weight: 600;
+                    border-left: 2px solid var(--info-color);
+                    border-right: 2px solid var(--info-color);
+                    padding-inline: 10px;
+                    top: -13px;
+                }
+            }
+        }
+        .boit-message {
+            position: relative;
+            & .message {
+                height: 200px;
+                color: var(--info-color);
+                padding: 10px;
+                font-size: 1.2rem;
+                font-weight: 400;
+                width: 100%;
+                box-shadow: 0px 0px 2px var(--secondary-color);
+                border: none;
+                border-radius: 5px;
+                transition: 0.5s;
+                resize: none;
+                outline: none;
+                background: none;
+            }
+            & .dis-message {
+                position: absolute;
+                left: 0;
+                font-size: 1.2rem;
+                padding: 10px;
+                padding-inline: 20px;
+                color: rgb(129, 129, 129);
+                font-weight: 400;
+                letter-spacing: 0.1rem;
+                text-transform: uppercase;
+                pointer-events: none;
+            }
+            & :is(.message, .dis-message) {
+                transition: 0.2s;
+            }
+            & .message:valid {
+                border: 2px solid var(--info-color);
+                box-shadow: 0px 0px 2px var(--info-color);
+            }
+            & .message:valid~.dis-message {
+                color: var(--info-color);
+                background-color: var(--primary-color);
+                padding: 0;
+                scale: 0.9;
+                left: 10px;
+                font-weight: 600;
+                border-left: 2px solid var(--info-color);
+                border-right: 2px solid var(--info-color);
+                padding-inline: 10px;
+                top: -13px;
+            }
+        }
+    }
+    & .submit {
+        display: block;
+        margin: 0 auto;
+        color: var(--secondary-color);
+        text-decoration: none;
+        border-radius: 50px;
+        position: relative;
+        background-color: var(--primary-color);
+        padding: 10px 20px;
+        border: none;
+        outline: none;
+        font-weight: 400;
+        cursor: pointer;
+    }
+    & .submit::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: -2px;
+        left: -2px;
+        background: linear-gradient(to top right, rgb(255, 98, 0), rgb(255, 166, 0), rgb(255, 111, 0));
+        z-index: -1;
+        border-radius: 40px;
+        padding: 2px;
+        transition: 0.5s;
+    }
+    & .submit:hover:after {
+        background: linear-gradient(to top right, rgb(255, 111, 0), rgb(255, 98, 0), rgb(255, 166, 0));
+        top: -1px;
+        left: -1px;
+        box-shadow: -2px -2px 100px rgba(255, 111, 0, 0.349), 2px 2px 100px rgba(255, 166, 0, 0.331);
+    }
+    & .submit:active {
+        scale: 0.9;
+    }
+}
+
+@media (max-width:900px) {
+    .contactme {
+        & .post-info {
+            & .pesonnel-info {
+                flex-wrap: wrap;
+                justify-content: center;
+                & .boit {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

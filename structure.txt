@@ -1,0 +1,27 @@
+my-portfolio/
+│
+├── index.html                # Main homepage (landing page)
+├── about.html                # About me page
+├── projects.html             # Projects / portfolio page
+├── contact.html              # Contact form or info
+│
+├── css/
+│   └── style.css             # Main stylesheet
+│
+├── js/
+│   └── script.js             # Main JavaScript file
+│
+├── assets/
+│   ├── images/               # Personal photos, project screenshots, logos
+│   │   └── profile.jpg
+│   └── icons/                # Icons like social media, skills
+│       └── github.svg
+│
+├── fonts/                    # Custom fonts (if any)
+│   └── Roboto-Regular.woff2
+│
+├── data/                     # Optional JSON files for projects or skills
+│   └── projects.json
+│
+├── README.md                 # Description of your project (optional)
+└── LICENSE                   # License file (optional, for open source)

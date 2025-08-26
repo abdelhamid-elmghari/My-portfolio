@@ -1,0 +1,139 @@
+.about-me {
+    & :is(h1, h3) {
+        text-align: center;
+        font-weight: 500;
+        color: var(--secondary-color);
+    }
+    & h3 {
+        padding-top: 9rem;
+    }
+    & h1 {
+        font-size: 2.4rem;
+    }
+    & .content {
+        margin: -2% auto;
+        scale: 0.9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        & .logo-pecture-personelle {
+            position: relative;
+            & .my-picture {
+                height: 500px;
+                border-radius: 50px;
+            }
+            & .it-student {
+                height: 180px;
+                background-image: url(../../assets/imges/frontend.png);
+                aspect-ratio: 1/1;
+                background-position: 0px;
+                background-repeat: no-repeat;
+                background-size: contain;
+                bottom: -40px;
+                border-radius: 50%;
+                right: -40px;
+                position: absolute;
+                background-color: white;
+                box-shadow: 2px 2px 2px rgba(118, 117, 117, 0.427);
+            }
+            & .logo {
+                position: absolute;
+                height: 80px;
+                bottom: 18px;
+                right: 10px;
+            }
+        }
+        & section {
+            display: flex;
+            flex-direction: column;
+            color: var(--secondary-color);
+            justify-content: center;
+            padding: 3rem;
+            width: auto;
+            max-width: 60%;
+            gap: 20px;
+            & .information {
+                & p {
+                    font-weight: 500;
+                    font-size: clamp(0.5rem, calc(7vw + 0.2rem), 1.2rem);
+                }
+            }
+            & .my-competantion {
+                display: flex;
+                align-items: center;
+                gap: 30px;
+                & a {
+                    height: 240px;
+                    width: 240px;
+                    border-radius: 20px;
+                    text-decoration: none;
+                    display: flex;
+                    color: var(--secondary-color);
+                    flex-direction: column;
+                    transition: 0.5s;
+                    padding: 30px;
+                    border: 0.5px solid var(--secondary-color);
+                    letter-spacing: 0.05rem;
+                    gap: 10px;
+                    & i {
+                        font-size: 4rem;
+                        padding-bottom: 1rem;
+                    }
+                    & span {
+                        font-weight: 400;
+                        font-size: 1.5rem;
+                    }
+                }
+                & a:hover {
+                    background-color: rgba(216, 218, 219, 0.295);
+                    box-shadow: 5px 5px 0px var(--secondary-color);
+                    transform: translateY(-10px);
+                }
+            }
+            & h2 {
+                padding-top: 20px;
+            }
+            & .tools {
+                display: flex;
+                padding-block: 2rem;
+                display: flex;
+                gap: 20px;
+                & img {
+                    height: 60px;
+                    padding: 10px;
+                    border-radius: 10px;
+                    background-color: rgba(134, 134, 134, 0.317);
+                    border: 0.5px solid var(--secondary-color);
+                    transition: 0.5s;
+                    cursor: pointer;
+                }
+                & img:hover {
+                    box-shadow: 3px 3px 0px var(--secondary-color);
+                    transform: translateY(-5px);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:900px) {
+    .about-me {
+        & .content {
+            & section {
+                width: 100%;
+                & .my-competantion {
+                    flex-wrap: wrap;
+                    & a {
+                        width: 100%;
+                    }
+                }
+                & .tools {
+                    justify-content: center;
+                    & img {}
+                }
+            }
+        }
+    }
+}

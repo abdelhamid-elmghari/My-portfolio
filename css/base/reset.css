@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--primary-color);
+    transition: 0.5s linear;
+}
+
+.fa-angle-up {
+    color: var(--info-color);
+    position: fixed;
+    transition: 0.5s;
+    cursor: pointer;
+    bottom: 5%;
+    opacity: 0;
+    right: 2%;
+    font-size: 2rem;
+    z-index: 999;
+}
+
+.fa-angle-up.display {
+    opacity: 1;
+}
+
+.fa-angle-up:hover {
+    text-shadow: 0px 0px 10px var(--info-color);
+}
+
+.info {
+    & :is(h1, p, h3) {
+        text-align: center;
+        font-weight: 400;
+        opacity: 0.5;
+    }
+    & p {
+        padding-top: 10px;
+        font-weight: 200;
+        letter-spacing: 0.1rem;
+    }
+}

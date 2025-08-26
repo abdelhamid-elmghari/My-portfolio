@@ -1,0 +1,18 @@
+/* ================================
+  Global Variables (Theme)
+================================ */
+
+:root {
+    /* 🎨 Primary Theme Colors */
+    --primary-color: white;
+    /* Blue */
+    --secondary-color: #0f172a;
+    --accent-color: #ffbf08;
+    --info-color: rgb(255, 81, 0);
+    /* black */
+}
+
+.color-prefer {
+    --primary-color: #272727;
+    --secondary-color: white;
+}

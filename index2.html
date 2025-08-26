@@ -1,0 +1,201 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="containar">
+        <div class="visible-card">
+            <div class="card">
+                <div class="face front ">
+                    <h1>Stardew Valley</h1>
+                </div>
+                <div class="face back ">
+                    <h1>About</h1>
+                    <p>
+                        Stardew Valley is a relaxing farming simulation game where you inherit a rundown farm and work to restore it. You can plant crops, raise animals, mine for resources, fish, and build relationships with villagers. The game has charming pixel art and a peaceful
+                        atmosphere. It can be played solo or in co-op with friends.
+                    </p>
+                    <a href="">Enter here</a>
+                </div>
+            </div>
+        </div>
+        <div class="visible-card">
+            <div class="card">
+                <div class="face front ">
+                    <h1>Hades</h1>
+                </div>
+                <div class="face back ">
+                    <h1>About</h1>
+                    <p>
+                        Hades is a fast-paced action roguelike game developed by Supergiant Games. You play as Zagreus, the son of Hades, trying to escape the Underworld. Each run is unique, with different powers and enemies. The game combines intense combat with deep storytelling
+                        and beautiful art
+                    </p>
+                    <a href="">Enter here</a>
+                </div>
+            </div>
+        </div>
+        <div class="visible-card">
+            <div class="card">
+                <div class="face front ">
+                    <h1>Civilization VI</h1>
+                </div>
+                <div class="face back ">
+                    <h1>About</h1>
+                    <p>
+                        Civilization VI is a turn-based strategy game where you build an empire from scratch, starting in ancient times and expanding into the future. You’ll make decisions about diplomacy, science, war, and culture. It’s highly strategic and can become very
+                        immersive.
+                    </p>
+                    <a href="">Enter here</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="work">
+
+        <button class="btn"><span>select 1</span></button>
+
+
+        <button class="btn"><span>select 2</span></button>
+
+
+        <button class="btn"><span>select 3</span></button>
+    </div>
+
+    <script src="scriptes/scrfept.js/script.js"></script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360° Cube Matching Game</title>
+    <style>
+        body {
+            margin: 0;
+            background: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        
+        #score {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="score">Score: 0</div>
+
+    <!-- Three.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script>
+        let scene, camera, renderer, controls, cube;
+        let score = 0;
+        const scoreEl = document.getElementById("score");
+
+        init();
+        animate();
+
+        function init() {
+            // Scene setup
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x111111);
+
+            // Camera
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+            camera.position.set(3, 3, 3);
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer({
+                antialias: true
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+            const pointLight = new THREE.PointLight(0xffffff, 1);
+            pointLight.position.set(5, 5, 5);
+            scene.add(pointLight);
+
+            // Cube with colored faces
+            const materials = [
+                new THREE.MeshBasicMaterial({
+                    color: 0xff0000
+                }), // Right
+                new THREE.MeshBasicMaterial({
+                    color: 0x00ff00
+                }), // Left
+                new THREE.MeshBasicMaterial({
+                    color: 0x0000ff
+                }), // Top
+                new THREE.MeshBasicMaterial({
+                    color: 0xffff00
+                }), // Bottom
+                new THREE.MeshBasicMaterial({
+                    color: 0xff00ff
+                }), // Front
+                new THREE.MeshBasicMaterial({
+                    color: 0x00ffff
+                }), // Back
+            ];
+            const geometry = new THREE.BoxGeometry(1, 1, 1);
+            cube = new THREE.Mesh(geometry, materials);
+            scene.add(cube);
+
+            // Controls for 360° rotation
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.enableZoom = false;
+
+            // Check cube rotation every 1 second
+            setInterval(checkMatch, 1000);
+
+            // Resize handling
+            window.addEventListener("resize", () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        function checkMatch() {
+            // Target: cube front face aligned with camera
+            const frontAligned = Math.abs(cube.rotation.y % (Math.PI * 2)) < 0.2;
+            if (frontAligned) {
+                score++;
+                scoreEl.textContent = "Score: " + score;
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+    </script>
+</body>
+
+</html>
